@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- A yellow sticky note with a strip of tape and a handwritten "B" -->
+  <rect x="6" y="9" width="52" height="50" rx="3" fill="#fff2a1" transform="rotate(-4 32 34)"/>
+  <rect x="21" y="4" width="22" height="9" fill="#f0c878" opacity=".85" transform="rotate(3 32 8)"/>
+  <path d="M10 46h44M10 54h44" stroke="#5a82c8" stroke-opacity=".35" stroke-width="1.5"/>
+  <text x="32" y="47" text-anchor="middle" font-family="'Segoe Print', 'Comic Sans MS', cursive" font-size="34" font-weight="700" fill="#3866e0">B</text>
+</svg>

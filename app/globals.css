@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Light: a ruled notebook page. Dark: a green chalkboard. */
+:root {
+  --paper: #fdfaf1;
+  --ink: #2d3047;
+  --pencil: #6b6f86;
+  --card: #ffffff;
+  --rule: rgb(90 130 200 / 0.18);
+  --margin: #ef9a9a;
+  --hl: rgb(255 226 90 / 0.75);
+  --rose: #e9577f;
+  --blue: #3866e0;
+  --note-yellow: #fff2a1;
+  --note-pink: #ffd6e0;
+  --note-mint: #c9f2e3;
+  --note-blue: #d8e6ff;
+  --tape: rgb(240 200 120 / 0.55);
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #1f2a24;
+  --ink: #ecebe4;
+  --pencil: #a9b3ab;
+  --card: #26332c;
+  --rule: rgb(255 255 255 / 0.06);
+  --margin: rgb(239 154 154 / 0.45);
+  --hl: rgb(243 217 92 / 0.35);
+  --rose: #f7a6c0;
+  --blue: #9bb8ff;
+  --note-yellow: #4a4630;
+  --note-pink: #4a3540;
+  --note-mint: #2f4a40;
+  --note-blue: #33405a;
+  --tape: rgb(240 200 120 / 0.25);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-pencil: var(--pencil);
+  --color-card: var(--card);
+  --color-rule: var(--rule);
+  --color-margin: var(--margin);
+  --color-hl: var(--hl);
+  --color-rose: var(--rose);
+  --color-blue: var(--blue);
+  --color-note-yellow: var(--note-yellow);
+  --color-note-pink: var(--note-pink);
+  --color-note-mint: var(--note-mint);
+  --color-note-blue: var(--note-blue);
+  --color-tape: var(--tape);
+  --font-sans: var(--font-nunito);
+  --font-hand: var(--font-caveat);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Ruled lines across the whole page, like notebook paper */
+body {
+  background-color: var(--paper);
+  background-image: linear-gradient(transparent calc(2rem - 1px), var(--rule) calc(2rem - 1px));
+  background-size: 100% 2rem;
+  color: var(--ink);
+  overflow-x: clip;
+  transition:
+    background-color 0.5s,
+    color 0.5s;
+}
+
+/* Chalk looks slightly dusty in dark mode */
+.dark .chalk {
+  text-shadow: 0 0 1px rgb(236 235 228 / 0.4);
+}
+
+/* A strip of washi tape */
+.tape {
+  position: absolute;
+  height: 1.6rem;
+  width: 5.5rem;
+  background: var(--tape);
+  border-left: 2px dashed rgb(255 255 255 / 0.4);
+  border-right: 2px dashed rgb(255 255 255 / 0.4);
+}
+
+::selection {
+  background: var(--hl);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
